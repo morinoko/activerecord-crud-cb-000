@@ -30,9 +30,9 @@ def can_be_created_in_a_block(args = nil)
         m.send("#{attribute}=", value)
       end
     else
-      movie = Movie.new
-      movie.save
+      m.save
     end
+  end
 end
 
 def can_get_the_first_item_in_the_database
