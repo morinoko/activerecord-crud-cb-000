@@ -24,16 +24,15 @@ def can_be_created_with_a_hash_of_attributes
 end
 
 def can_be_created_in_a_block(args = nil)
-  if args
-    Movie.create do |m|
+  Movie.create do |m|
+    if args
       args.each do |attribute, value|
         m.send("#{attribute}=", value)
       end
+    else
+      movie = Movie.new
+      movie.save
     end
-  else
-    movie = Movie.new
-    movie.save
-  end
 end
 
 def can_get_the_first_item_in_the_database
