@@ -31,7 +31,8 @@ def can_be_created_in_a_block(args = nil)
       end
     end
   else
-    Movie.new
+    movie = Movie.new
+    movie.save
   end
 end
 
