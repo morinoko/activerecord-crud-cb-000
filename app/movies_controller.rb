@@ -66,6 +66,7 @@ def can_find_using_where_clause_and_be_sorted
   params = {release_date: 2002}
   
   movies = Movie.where("release_date >= ?", params[:date]).order(release_date: :desc)
+  movies.map { |movie| movie.title }
 end
 
 def can_be_found_updated_and_saved
