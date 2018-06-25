@@ -26,8 +26,9 @@ end
 def can_be_created_in_a_block(args = {})
   if args
     Movie.create do |m|
-      m.title = args[:title]
-      m.release_date = args[:release_date]
+      args.each do |attribute, value|
+        m.send("#{attribute}=", value)
+      end
     end
   else
     Movie.create
